@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Score Card</title>
+</head>
+<body>
+<h1>Score card</h1>
+<table class="w3-container" border=1>
+<tr th:each="s:${students}">
+<td th:text=${s.studentName}>Student Name
+</td>
+<td th:text=${s.gpa}>Student Gpa
+</td>
+<td>
+<td><a href="Edit.html"
+				th:href="@{/faculty/edit/}+${s.id}"> Edit </a></td>
+
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

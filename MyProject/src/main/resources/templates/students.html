@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Students Page</title>
+</head>
+<body>
+	<h1>Students</h1>
+	<table class="w3-container" border="1">
+		<tr th:each="s:${students}">
+			<td th:text=${s.id}>Id</td>
+			<td th:text=${s.studentName}>Name</td>
+			<td th:text=${s.gender}>Gender</td>
+			<td th:text=${s.DOB}>Dob</td>
+			<td th:text=${s.degree}>Degree</td>
+			<td th:text=${s.semester}>Semester</td>
+			<td th:text=${s.address}>Address</td>
+			<td th:text=${s.mobile}>Mobile</td>
+			<td th:text=${s.gpa}>GPA</td>
+			<td><a href="EditStudent.html"
+				th:href="@{/faculty/editStudent/}+${s.id}"> Edit </a></td>
+			<td><a href="DeleteStudent.html"
+				th:href="@{/faculty/deleteStudent/}+${s.id}"> Delete </a></td>
+
+		</tr>
+	</table>
+	<a href="AddStudent.html" th:href="@{/faculty/createStudent}">Add Student</a>
+
+</body>
+</html>

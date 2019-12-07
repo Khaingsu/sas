@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Student Form Page</title>
+</head>
+<body>
+	<h1>Student Form Page</h1>
+	<form th:action="@{/faculty/saveStudent}" method="get">
+		<fieldset>
+			Name: <input type="text" th:field="${student.studentName}">
+		</fieldset>
+		<fieldset>
+			Gender: <input type="text" th:field="${student.gender}">
+		</fieldset>
+		<fieldset>
+			DOB: <input type="text" th:field="${student.DOB}">
+		</fieldset>
+		<fieldset>
+			Degree: <input type="text" th:field="${student.degree}">
+		</fieldset>
+		<fieldset>
+			Semester: <input type="text" th:field="${student.semester}">
+		</fieldset>
+		<fieldset>
+			Address: <input type="text" th:field="${student.address}">
+		</fieldset>
+		<fieldset>
+			Mobile: <input type="text" th:field="${student.mobile}">
+		</fieldset>
+		<fieldset>
+			GPA: <input type="text" th:field="${student.gpa}">
+		</fieldset>
+
+		<fieldset>
+			<select th:field="*{courses}">
+				<option th:each="course : ${courses}"
+					th:value="${course.courseName}" th:text="${course.courseName}"></option>
+			</select>
+		</fieldset>
+
+		<button type="submit">Submit</button>
+	</form>
+
+</body>
+</html>

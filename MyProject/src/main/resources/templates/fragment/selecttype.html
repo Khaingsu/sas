@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <form>
+    <th:block th:fragment="select (label, name, items)">
+
+        <label th:text="${label}">Label</label>
+
+                  <select th:field="*{__${name}__}">
+            <option th:each="item : ${items}" th:value="${item}"
+              th:text="${item}">dog</option>
+          </select>
+                    
+          </th:block>
+        
+      
+    
+  </form>
+
+
+</body>
+</html>
