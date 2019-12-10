@@ -37,12 +37,13 @@ public class FacultyController {
 	@GetMapping("/listStudent")
 	public String showStudents(Model model) {
 		ArrayList<Student> slist = new ArrayList<Student>();
-		// ArrayList<Course> clist=new ArrayList<Course>();
-		// clist.addAll(courserepo.findAll());
+		 ArrayList<Course> clist=new ArrayList<Course>();
+		 clist.addAll(courserepo.findAll());
 		// Course c=new Course();
 		slist.addAll(sturepo.findAll());
-		// courserepo.save(c);
+		courserepo.saveAll(clist);
 		model.addAttribute("students", slist);
+		model.addAttribute("clist", clist);
 		return "students";
 
 	}
@@ -60,12 +61,12 @@ public class FacultyController {
 	}
 
 	@GetMapping("/saveStudent")
-	public String saveStudent(@ModelAttribute Student student, @ModelAttribute("course") Course course) {
-		System.out.println("--course--" + course);
+	public String saveStudent(@ModelAttribute Student student) {
+		
 		System.out.println("--course--" + student);
 
 		sturepo.save(student);
-		courserepo.save(course);
+		//courserepo.save(course);
 		// System.out.println("Course name is"+courserepo.findAll().toString());
 		return "forward:/faculty/listStudent";
 	}

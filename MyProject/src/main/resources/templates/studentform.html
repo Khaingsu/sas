@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Student Form Page</h1>
-	<form th:action="@{/faculty/saveStudent}" method="get">
+	<form th:action="@{/faculty/saveStudent}" method="get" class="form-control">
 		<fieldset>
 			Name: <input type="text" th:field="${student.studentName}">
 		</fieldset>
@@ -31,11 +31,12 @@
 		<fieldset>
 			GPA: <input type="text" th:field="${student.gpa}">
 		</fieldset>
+		
 
 		<fieldset>
-			<select th:field="*{courses}">
+			<select >
 				<option th:each="course : ${courses}"
-					th:value="${course.courseName}" th:text="${course.courseName}"></option>
+					th:value="${course.id}" th:text="${course.courseName }"></option>
 			</select>
 		</fieldset>
 

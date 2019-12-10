@@ -17,13 +17,17 @@
 			<td th:text=${s.address}>Address</td>
 			<td th:text=${s.mobile}>Mobile</td>
 			<td th:text=${s.gpa}>GPA</td>
+			<td th:text=${s.course}>Course</td>
+			
 			<td><a href="EditStudent.html"
 				th:href="@{/faculty/editStudent/}+${s.id}"> Edit </a></td>
 			<td><a href="DeleteStudent.html"
 				th:href="@{/faculty/deleteStudent/}+${s.id}"> Delete </a></td>
 
 		</tr>
+		
 	</table>
+	
 	<a href="AddStudent.html" th:href="@{/faculty/createStudent}">Add Student</a>
 
 </body>

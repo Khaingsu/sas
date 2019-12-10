@@ -33,10 +33,14 @@ public class Student {
 	
 	@ManyToOne
 	private Staff staffName;
+	
+@ManyToOne
+private Course course;
 
-	@ManyToMany
-	@JoinTable(name="Student_Course", joinColumns=@JoinColumn(name="studentName_id"), inverseJoinColumns=@JoinColumn(name="courseName_id"))
-	private List<Course> courses;
+
+//	@ManyToMany
+//	@JoinTable(name="Student_Course", joinColumns=@JoinColumn(name="studentName_id"), inverseJoinColumns=@JoinColumn(name="courseName_id"))
+//	private List<Course> courses;
 	
 	
 	public Student() {
@@ -44,8 +48,10 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Student(String studentName, String gender, Date dOB, String degree, int semester, String address, int mobile,
-			double gpa, Staff staffName, List<Course> courses) {
+			double gpa, Staff staffName, Course course) {
 		super();
 		this.studentName = studentName;
 		this.gender = gender;
@@ -56,8 +62,10 @@ public class Student {
 		this.mobile = mobile;
 		this.gpa = gpa;
 		this.staffName = staffName;
-		this.courses = courses;
+		this.course = course;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -139,20 +147,29 @@ public class Student {
 		this.staffName = staffName;
 	}
 
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", studentName=" + studentName + ", gender=" + gender + ", DOB=" + DOB
-				+ ", degree=" + degree + ", semester=" + semester + ", address=" + address + ", mobile=" + mobile
-				+ ", gpa=" + gpa + ", staffName=" + staffName + ", courses=" + courses + "]";
+		return "Student [studentName=" + studentName + ", gender=" + gender + ", DOB=" + DOB + ", degree=" + degree
+				+ ", semester=" + semester + ", address=" + address + ", mobile=" + mobile + ", gpa=" + gpa
+				+ ", staffName=" + staffName + ", course=" + course + "]";
 	}
+
+
+
+	public Course getCourse() {
+		return course;
+	}
+
+
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+
 
 	@Override
 	public int hashCode() {

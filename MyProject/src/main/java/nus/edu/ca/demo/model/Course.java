@@ -3,12 +3,15 @@ package nus.edu.ca.demo.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Course {
@@ -19,9 +22,11 @@ public class Course {
 	private Date startDate;
 	private Date endDate;
 
-	@ManyToMany(mappedBy = "courses")
-	private List<Student> students;
+//	@ManyToMany(mappedBy = "courses")
+//	private List<Student> students;
 
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
+	private List<Student> students;
 	@ManyToOne
 	private Staff staffName;
 
@@ -33,6 +38,8 @@ public class Course {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Course(String courseName, Date startDate, Date endDate, List<Student> students, Staff staffName,
 			Department departmentName) {
 		super();
@@ -43,6 +50,8 @@ public class Course {
 		this.staffName = staffName;
 		this.departmentName = departmentName;
 	}
+
+
 
 	public int getId() {
 		return id;
